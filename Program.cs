@@ -2,14 +2,14 @@
 
 class Program
 {
-    int[][] White = new int[][]
+    int[][] Notes = new int[][]
     {
         new int[] {262, 294, 330, 349, 392, 440, 494, 523, 587, 659},
         new int[] {523, 587, 659, 698, 784, 880, 988, 1046, 1175, 1319},
         new int[] {1046, 1175, 1319, 1397, 1568, 1760, 1976, 2093, 2349, 2637}
     };
 
-    int[][] Black = new int[][]
+    int[][] Sharp = new int[][]
 
     {
         new int[] {277, 311, 370, 415, 466},
@@ -60,12 +60,12 @@ class Program
             }
             else if (keyInfo.Key >= ConsoleKey.A && keyInfo.Key <= ConsoleKey.L)
             {
-                int frequency = White[Octave][keyInfo.Key - ConsoleKey.A];
+                int frequency = Notes[Octave][keyInfo.Key - ConsoleKey.A];
                 Sound(frequency, 300);
             }
             else if (keyInfo.Key >= ConsoleKey.Q && keyInfo.Key <= ConsoleKey.T)
             {
-                int frequency = Black[Octave][keyInfo.Key - ConsoleKey.Q];
+                int frequency = Sharp[Octave][keyInfo.Key - ConsoleKey.Q];
                 Sound(frequency, 300);
             }
         }
@@ -76,10 +76,10 @@ class Program
     }
     void OctaveChange(int octave)
     {
-        if (octave >= 0 && octave < White.Length)
+        if (octave >= 0 && octave < Notes.Length)
         {
             Octave = octave;
-            Console.WriteLine($"Переключено на октаву {Octave + 4}");
+            Console.WriteLine($"Октава: {Octave + 4}");
         }
     }
 
